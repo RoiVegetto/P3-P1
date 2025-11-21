@@ -43,4 +43,15 @@ class Command
         $this->manager->delete($id);
         echo "Contact supprimé (id : $id)\n";
     }
+
+    public function help(): void
+    {
+        echo "📌 Commandes disponibles :\n";
+        echo "  list                       - Affiche tous les contacts\n";
+        echo "  detail <id>                - Affiche un contact par son ID\n";
+        echo "  create nom, email, phone   - Crée un nouveau contact\n";
+        echo "  delete <id>                - Supprime un contact par son ID\n";
+        echo "  help                       - Affiche cette aide\n";
+    }
+
 }

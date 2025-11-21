@@ -12,8 +12,13 @@ $command = new Command($manager);
 while (true) {
     $line = readline("Entrez votre commande : ");
 
+    // HELP
+    if ($line === "help") {
+        $command->help();
+    }
+
     // LIST
-    if ($line === "list") {
+    elseif ($line === "list") {
         $command->list();
     }
 
