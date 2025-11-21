@@ -43,6 +43,16 @@ while (true) {
         $command->delete($id);
     }
 
+    // MODIFY <id> name, email, phone
+    elseif (preg_match('/^modify\s+(\d+)\s+([^,]+),\s*([^,]+),\s*(.+)$/', $line, $m)) {
+        $id    = (int)$m[1];
+        $name  = trim($m[2]);
+        $email = trim($m[3]);
+        $phone = trim($m[4]);
+
+        $command->modify($id, $name, $email, $phone);
+    }
+
     else {
         echo "Commande inconnue : $line\n";
     }

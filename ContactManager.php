@@ -70,4 +70,22 @@ class ContactManager
         $stmt->execute(['id' => $id]);
     }
 
+    public function modify(int $id, string $name, string $email, string $phone): bool
+    {
+        $stmt = $this->pdo->prepare("
+            UPDATE contact 
+            SET name = :name, email = :email, phone_number = :phone 
+            WHERE id = :id
+        ");
+
+        $stmt->execute([
+            'id' => $id,
+            'name' => $name,
+            'email' => $email,
+            'phone' => $phone
+        ]);
+
+        return $stmt->rowCount() > 0; // true si un contact a été modifié
+    }
+
 }

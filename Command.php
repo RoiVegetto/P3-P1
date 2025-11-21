@@ -54,4 +54,15 @@ class Command
         echo "  help                       - Affiche cette aide\n";
     }
 
+    public function modify(int $id, string $name, string $email, string $phone): void
+    {
+        $success = $this->manager->modify($id, $name, $email, $phone);
+
+        if ($success) {
+            echo "Contact mis à jour avec succès.\n";
+        } else {
+            echo "Aucun contact trouvé avec l'id $id.\n";
+        }
+    }
+
 }
